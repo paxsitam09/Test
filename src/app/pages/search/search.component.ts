@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MovieService } from '../../shared/services/movie.service';
+import { MovieService } from '../../services/movie.service';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../core/component/header/header.component';
+import { HeaderComponent } from '../../core/header/header.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
