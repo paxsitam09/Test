@@ -1,0 +1,21 @@
+<app-header [userImg]="userProfileImg" />
+<div class="search-container">
+    <h2>Results for "{{ searchQuery }}"</h2>
+  </div>
+  
+  <div class="movie-container" infiniteScroll (scrolled)="onScroll()" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300">
+    <div *ngFor="let movie of movies" class="movie-card">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+      <h3>{{ movie.title }}</h3>
+      <p>Release Date: {{ movie.release_date }}</p>
+      <p>Rating: {{ movie.vote_average }}</p>
+      
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" [routerLink]="['/movie', movie.id]">View Details</button>
+
+    </div>
+  </div>
+  
+  <div *ngIf="movies.length === 0 && searchQuery">
+    <p>No results found for "{{ searchQuery }}"</p>
+  </div>
+  
